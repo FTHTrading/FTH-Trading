@@ -57,6 +57,89 @@ const navigationCards = [
   },
 ];
 
+const whyNowReasons = [
+  {
+    icon: "⚠",
+    title: "Capital markets are migrating to multi-chain environments",
+    detail: "Institutional flows now span Ethereum, Solana, XRPL, Polygon, Avalanche, and more. No single-chain assumption holds.",
+  },
+  {
+    icon: "🔓",
+    title: "Traditional custody systems are not deterministic",
+    detail: "Existing platforms rely on permission checks, not invariant enforcement. When permissions fail, undefined states emerge.",
+  },
+  {
+    icon: "💥",
+    title: "Cross-chain settlement introduces undefined failure states",
+    detail: "Bridge collapses, reorgs, and oracle failures create gaps that no permission-based system can prevent.",
+  },
+  {
+    icon: "⚖",
+    title: "Regulatory enforcement now requires architectural isolation",
+    detail: "MiCA, SEC digital asset rules, and Basel III crypto exposure limits demand separation at the infrastructure layer — not the application layer.",
+  },
+  {
+    icon: "🧱",
+    title: "Most crypto infrastructure is permission-based, not invariant-based",
+    detail: "Permissions can be overridden. Invariants cannot. The difference is the difference between trust and proof.",
+  },
+];
+
+const personas = [
+  {
+    role: "Infrastructure Operators",
+    need: "Deterministic settlement backbone",
+    detail: "Deploy a runtime where every transaction, every state change, every failure path is defined in advance. No undefined behavior. No exceptions.",
+    color: "#3b82f6",
+    icon: "🔧",
+  },
+  {
+    role: "Asset Issuers",
+    need: "Bond + collateral lifecycle enforcement",
+    detail: "Issue tokenized bonds with lifecycle state machines that enforce compliance at every stage — from subscription to redemption.",
+    color: "#f59e0b",
+    icon: "📜",
+  },
+  {
+    role: "Trading Venues",
+    need: "Mode isolation + surveillance",
+    detail: "Run execution environments that are architecturally separated from custody and issuance. Not by policy. By design.",
+    color: "#8b5cf6",
+    icon: "📊",
+  },
+  {
+    role: "Regulators",
+    need: "Provable invariant enforcement + halting logic",
+    detail: "Audit a system where every constraint is machine-verifiable, every failure is registered, and every halt condition is deterministic.",
+    color: "#ef4444",
+    icon: "🏛",
+  },
+  {
+    role: "Custodians",
+    need: "Vault topology + policy engine enforcement",
+    detail: "Integrate with a 12-role vault architecture across 4 security tiers with MPC signing thresholds and velocity limits.",
+    color: "#10b981",
+    icon: "🔐",
+  },
+];
+
+const verificationItems = [
+  { label: "Hash Chain Structure", desc: "SHA-256 linked ledger entries. Every state transition is content-addressed and tamper-evident." },
+  { label: "Snapshot Equivalence", desc: "Any two nodes replaying the same inputs produce byte-identical ledger state." },
+  { label: "Deterministic Replay", desc: "Full audit replay from genesis. No external state required. No non-determinism." },
+  { label: "Public Anchoring", desc: "XRPL testnet anchoring with verifiable transaction proofs. Bridgeable to mainnet." },
+  { label: "Freeze Manifest", desc: "Cryptographically signed ceremony binding genesis block, invariants table, and author identity." },
+  { label: "Independent Verifier CLI", desc: "Third-party verification tool. Validate the entire ledger without trusting the runtime." },
+];
+
+const governanceItems = [
+  { label: "Mode Isolation", desc: "INFRA, ISSUER, and VENUE are architecturally separated. Cross-mode operations are rejected at runtime boundary.", color: "#3b82f6" },
+  { label: "Vault Signer Distribution", desc: "Multi-party computation across custodians. No single party can sign. Quorum thresholds per tier.", color: "#10b981" },
+  { label: "Halt Conditions", desc: "9 invariants with HALT/BLOCK/WARN severity. Violating a HALT invariant stops the entire system.", color: "#ef4444" },
+  { label: "Failure Matrix", desc: "147 registered failure states. 147 covered. 0 undefined. 100% coverage is a hard requirement.", color: "#f59e0b" },
+  { label: "External Audit Pathways", desc: "DOI-registered publications, IPFS content-addressed proofs, ORCID-linked author credentials.", color: "#8b5cf6" },
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen p-8 lg:p-12">
@@ -91,7 +174,7 @@ export default function HomePage() {
                 border: "1px solid rgba(59,130,246,0.3)",
               }}
             >
-              Sovereign Institutional Runtime
+              Deterministic Execution Infrastructure
             </span>
             <span
               className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full"
@@ -122,12 +205,12 @@ export default function HomePage() {
           </h1>
 
           <p className="text-xl text-slate-400 max-w-3xl leading-relaxed mb-2">
-            Deterministic Capital Infrastructure
+            Deterministic execution infrastructure for regulated digital capital markets.
           </p>
           <p className="text-base text-slate-500 max-w-2xl leading-relaxed">
             Custody · Issuance · Settlement · Surveillance
             <br />
-            Across 13 Chains · 3 Hard Modes · Zero Undefined Failure States
+            Across 13 Chains · 3 Isolated Modes · Zero Undefined Failure States
           </p>
         </motion.div>
 
@@ -174,7 +257,7 @@ export default function HomePage() {
       </motion.div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
         {heroStats.map((stat, i) => (
           <MetricCard
             key={stat.label}
@@ -186,6 +269,178 @@ export default function HomePage() {
           />
         ))}
       </div>
+
+      {/* ═══════════ WHY THIS EXISTS ═══════════ */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="mb-20"
+      >
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">
+          Why This Exists
+        </h2>
+        <p className="text-2xl font-bold text-white mb-2">
+          Why Deterministic Runtime Infrastructure Is Required
+        </p>
+        <p className="text-sm text-slate-400 max-w-3xl mb-8">
+          Institutional capital cannot safely operate in digital asset environments
+          built on permission-based assumptions. The next generation of capital markets
+          infrastructure must enforce constraints — not request them.
+        </p>
+
+        <div className="space-y-3 mb-8">
+          {whyNowReasons.map((reason, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 + i * 0.08 }}
+              className="glass-card p-5 flex items-start gap-4"
+              style={{ borderLeftWidth: "3px", borderLeftColor: "#3b82f6" }}
+            >
+              <span className="text-xl flex-shrink-0 mt-0.5">{reason.icon}</span>
+              <div>
+                <h3 className="text-white font-semibold text-sm mb-1">
+                  {reason.title}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {reason.detail}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Thesis Statement */}
+        <div
+          className="p-6 rounded-2xl text-center"
+          style={{
+            background: "linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.08))",
+            border: "1px solid rgba(59,130,246,0.2)",
+            boxShadow: "0 0 60px rgba(59,130,246,0.1)",
+          }}
+        >
+          <p className="text-lg text-white font-semibold leading-relaxed max-w-2xl mx-auto">
+            FTH OS exists to eliminate undefined states in digital capital systems.
+          </p>
+          <p className="text-xs text-slate-500 mt-2 uppercase tracking-widest">
+            This is not optional infrastructure. This is required infrastructure.
+          </p>
+        </div>
+      </motion.section>
+
+      {/* ═══════════ WHO THIS IS FOR ═══════════ */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="mb-20"
+      >
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">
+          Personas
+        </h2>
+        <p className="text-2xl font-bold text-white mb-8">
+          Who This Is For
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {personas.map((persona, i) => (
+            <GlassCard key={persona.role} glowColor={persona.color} delay={i * 0.06}>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">{persona.icon}</span>
+                <div>
+                  <h3 className="text-white font-semibold text-sm">{persona.role}</h3>
+                  <p className="text-[10px] uppercase tracking-widest" style={{ color: persona.color }}>
+                    {persona.need}
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                {persona.detail}
+              </p>
+            </GlassCard>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* ═══════════ VERIFICATION & REPRODUCIBILITY ═══════════ */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="mb-20"
+      >
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">
+          Institutional Credibility
+        </h2>
+        <p className="text-2xl font-bold text-white mb-2">
+          Verification & Reproducibility
+        </p>
+        <p className="text-sm text-slate-400 max-w-3xl mb-8">
+          Every claim is machine-verifiable. Every state is reproducible. External parties
+          can independently verify this runtime without trusting any operator.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {verificationItems.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.06 }}
+              className="glass-card p-5"
+              style={{ borderTopWidth: "2px", borderTopColor: "#10b981" }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ background: "#10b981", boxShadow: "0 0 8px #10b981" }}
+                />
+                <h3 className="text-white font-semibold text-sm">{item.label}</h3>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* ═══════════ GOVERNANCE & OVERSIGHT ═══════════ */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="mb-20"
+      >
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">
+          Risk Mitigation
+        </h2>
+        <p className="text-2xl font-bold text-white mb-2">
+          Governance & Oversight
+        </p>
+        <p className="text-sm text-slate-400 max-w-3xl mb-8">
+          Power without governance is opacity. Every enforcement mechanism is visible,
+          auditable, and constrained by design.
+        </p>
+
+        <div className="space-y-3">
+          {governanceItems.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 + i * 0.08 }}
+              className="glass-card p-5 flex items-start gap-4"
+              style={{ borderLeftWidth: "3px", borderLeftColor: item.color }}
+            >
+              <div>
+                <h3 className="text-white font-semibold text-sm mb-1">{item.label}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* Navigation Grid */}
       <div className="mb-8">

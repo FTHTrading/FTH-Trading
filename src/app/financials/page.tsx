@@ -66,7 +66,7 @@ export default function FinancialsPage() {
     <div className="min-h-screen p-8 lg:p-12">
       <PageHeader
         title="Financial Projections"
-        subtitle="3-year revenue model with dynamic volume and margin controls. Three deployment paths."
+        subtitle="Revenue is not theoretical. It is derived from invariant-enforced runtime modules already in production."
         badge="FINANCIALS"
         badgeColor="#06b6d4"
       />
@@ -218,6 +218,23 @@ export default function FinancialsPage() {
             </ResponsiveContainer>
           </div>
         </GlassCard>
+      </div>
+
+      {/* Revenue Thesis */}
+      <div
+        className="p-6 rounded-2xl mb-10"
+        style={{
+          background: "linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.06))",
+          border: "1px solid rgba(16,185,129,0.2)",
+        }}
+      >
+        <p className="text-lg text-white font-semibold text-center mb-2">
+          Revenue engines are activation switches, not experiments.
+        </p>
+        <p className="text-sm text-slate-400 text-center max-w-2xl mx-auto">
+          All revenue pathways derive from invariant-enforced runtime modules already deployed.
+          Every dollar of projected revenue maps to a production-ready module with test coverage.
+        </p>
       </div>
 
       {/* Revenue Models */}

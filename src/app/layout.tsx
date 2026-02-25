@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FTH OS v1 — Sovereign Institutional Runtime",
+  title: "FTH OS v1 — Deterministic Execution Infrastructure",
   description:
-    "Deterministic Capital Infrastructure. Custody · Issuance · Settlement · Surveillance. Across 13 Chains · 3 Hard Modes · Zero Undefined Failure States.",
-  keywords: ["institutional", "custody", "stablecoin", "settlement", "blockchain", "DeFi"],
+    "Deterministic execution infrastructure for regulated digital capital markets. Custody · Issuance · Settlement · Surveillance across 13 chains with zero undefined failure states.",
+  keywords: ["institutional", "custody", "stablecoin", "settlement", "blockchain", "DeFi", "deterministic", "capital markets"],
 };
 
 export default function RootLayout({

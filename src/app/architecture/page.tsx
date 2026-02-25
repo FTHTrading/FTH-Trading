@@ -18,6 +18,65 @@ export default function ArchitecturePage() {
         badgeColor="#3b82f6"
       />
 
+      {/* ═══════ ARCHITECTURE LAYER DIAGRAM ═══════ */}
+      <div className="mb-16">
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-5">
+          System Stack — Layered Architecture
+        </h2>
+        <div className="glass-card p-8 relative">
+          {/* Vertical connecting line */}
+          <div
+            className="absolute left-12 top-10 bottom-10 w-px"
+            style={{ background: "linear-gradient(180deg, #3b82f6, #10b981, #f59e0b, #8b5cf6, #ef4444, #06b6d4)" }}
+          />
+          {[
+            { layer: "L6", name: "Public Anchor Layer", desc: "XRPL anchoring · IPFS CID proofs · DOI publications · External verification", color: "#06b6d4" },
+            { layer: "L5", name: "Venue & Surveillance", desc: "Execution routing · Liquidity aggregation · Market making · Cross-venue surveillance", color: "#ef4444" },
+            { layer: "L4", name: "Issuance & Lifecycle Engine", desc: "Bond issuance · Collateral management · Stablecoin treasury · State machines", color: "#8b5cf6" },
+            { layer: "L3", name: "Custody & Vault Control Plane", desc: "12 vault roles · 4 security tiers · MPC signing · Velocity enforcement", color: "#f59e0b" },
+            { layer: "L2", name: "Mode Guard Enforcement", desc: "INFRA / ISSUER / VENUE isolation · Cross-mode rejection · Regulatory partitioning", color: "#10b981" },
+            { layer: "L1", name: "Deterministic Ledger", desc: "SHA-256 hash chain · Immutable state · Deterministic replay · Zero undefined states", color: "#3b82f6" },
+          ].map((item, i) => (
+            <motion.div
+              key={item.layer}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="flex items-center gap-6 relative"
+              style={{ marginBottom: i < 5 ? "16px" : "0" }}
+            >
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center font-bold text-sm z-10 flex-shrink-0"
+                style={{
+                  background: `${item.color}15`,
+                  color: item.color,
+                  border: `1px solid ${item.color}40`,
+                  boxShadow: `0 0 20px ${item.color}15`,
+                }}
+              >
+                {item.layer}
+              </div>
+              <div className="flex-1 py-3">
+                <h3 className="text-white font-semibold text-sm">{item.name}</h3>
+                <p className="text-xs text-slate-500">{item.desc}</p>
+              </div>
+              <div
+                className="w-2 h-2 rounded-full flex-shrink-0"
+                style={{ background: item.color, boxShadow: `0 0 8px ${item.color}` }}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Diagram legend */}
+        <div className="mt-4 glass-card p-4 flex items-center justify-center gap-3">
+          <span className="text-xs text-slate-400">
+            Each layer is independently auditable. Lower layers cannot be bypassed by higher layers.
+            Enforcement flows bottom-up. Revenue flows top-down.
+          </span>
+        </div>
+      </div>
+
       {/* Stacked Layers */}
       <div className="space-y-4 mb-12">
         {layers.map((layer, i) => (
