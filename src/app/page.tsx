@@ -431,8 +431,8 @@ export default function HomePage() {
         >
           <p className="text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
             These are not speculative trends. MiCA is enacted. Stablecoin bills are in committee.
-            BlackRock&apos;s BUIDL fund is live. The question is not <em>whether</em> deterministic
-            infrastructure will be required — it is <em>who builds it first</em>.
+            BlackRock&apos;s BUIDL fund is live. The regulatory window is narrowing.
+            Whoever builds deterministic infrastructure first becomes the <em>reference implementation</em>.
           </p>
         </div>
       </motion.section>
