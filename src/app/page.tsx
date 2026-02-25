@@ -55,6 +55,13 @@ const navigationCards = [
     icon: "📊",
     color: "#06b6d4",
   },
+  {
+    href: "/equity-runtime",
+    title: "Equity Runtime",
+    description: "8-module operating system for tokenized equity. Identity, pricing, risk, lending, lifecycle.",
+    icon: "🏛️",
+    color: "#8b5cf6",
+  },
 ];
 
 const whyNowReasons = [

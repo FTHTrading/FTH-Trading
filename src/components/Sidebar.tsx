@@ -13,6 +13,7 @@ import {
   HiOutlineCog6Tooth,
   HiOutlineBriefcase,
   HiOutlineHome,
+  HiOutlineCircleStack,
   HiOutlineChevronLeft,
   HiOutlineChevronRight,
 } from "react-icons/hi2";
@@ -26,6 +27,7 @@ const navItems = [
   { href: "/demo", label: "Demo", icon: HiOutlinePlay },
   { href: "/financials", label: "Financials", icon: HiOutlineChartBar },
   { href: "/modes", label: "Modes", icon: HiOutlineCog6Tooth },
+  { href: "/equity-runtime", label: "Equity Runtime", icon: HiOutlineCircleStack },
   { href: "/investor", label: "Investor", icon: HiOutlineBriefcase },
 ];
 
@@ -143,7 +145,7 @@ export function Sidebar() {
               All invariants active
             </div>
             <div className="text-[10px] text-slate-500 mt-1">
-              345 tests · 0 failures · 13 chains
+              384 tests · 0 failures · 13 chains
             </div>
           </div>
         )}
