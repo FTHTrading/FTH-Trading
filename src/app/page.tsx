@@ -85,6 +85,44 @@ const whyNowReasons = [
   },
 ];
 
+const whyNowCatalysts = [
+  {
+    year: "2024–2025",
+    catalyst: "Stablecoin Legislation Standardizes Reserve Expectations",
+    detail:
+      "The EU's MiCA framework and pending US stablecoin bills require issuers to prove reserve composition, redemption mechanics, and segregation in real time. Permission-based reporting cannot satisfy this. Deterministic state enforcement can.",
+    color: "#3b82f6",
+  },
+  {
+    year: "2025–2026",
+    catalyst: "Multi-Chain Settlement Complexity Exceeds Manual Governance",
+    detail:
+      "Institutional flows now span 13+ chains. Bridge failures, reorgs, and oracle disputes create undefined settlement states that no human governance committee can adjudicate in real time. Automated invariant enforcement becomes the only viable path.",
+    color: "#8b5cf6",
+  },
+  {
+    year: "2025–2027",
+    catalyst: "Regulators Require Architectural — Not Policy — Isolation",
+    detail:
+      "SEC, ESMA, and MAS are shifting from \"show us your compliance policy\" to \"show us your architectural separation.\" Mode isolation (INFRA / ISSUER / VENUE) is designed exactly for this transition.",
+    color: "#ef4444",
+  },
+  {
+    year: "2026–2028",
+    catalyst: "Institutional Digital Asset Custody Reaches $10T+ AUM",
+    detail:
+      "BlackRock, Fidelity, State Street, and sovereign wealth funds are moving on-chain. They will not accept custody infrastructure that has undefined failure states. The bar is deterministic proofs, not dashboards.",
+    color: "#10b981",
+  },
+  {
+    year: "2026–2029",
+    catalyst: "RWA Tokenization Scales Beyond Pilot Programs",
+    detail:
+      "Real-world asset tokenization (bonds, real estate, commodities) requires lifecycle state machines — issuance, coupon, maturity, redemption — enforced at the infrastructure layer. This is the core of FTH OS.",
+    color: "#f59e0b",
+  },
+];
+
 const personas = [
   {
     role: "Infrastructure Operators",
@@ -326,6 +364,75 @@ export default function HomePage() {
           </p>
           <p className="text-xs text-slate-500 mt-2 uppercase tracking-widest">
             This is not optional infrastructure. This is required infrastructure.
+          </p>
+        </div>
+      </motion.section>
+
+      {/* ═══════════ WHY NOW ═══════════ */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="mb-20"
+      >
+        <h2 className="text-sm font-medium text-slate-500 uppercase tracking-widest mb-2">
+          Market Timing
+        </h2>
+        <p className="text-2xl font-bold text-white mb-2">
+          Why Now — The Inevitability Window
+        </p>
+        <p className="text-sm text-slate-400 max-w-3xl mb-8">
+          Five converging forces make deterministic execution infrastructure unavoidable
+          within the next 3–5 years. This is not a prediction. It is a reading of regulatory
+          text, capital flows, and infrastructure failure rates already in motion.
+        </p>
+
+        <div className="space-y-3 mb-8">
+          {whyNowCatalysts.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 + i * 0.08 }}
+              className="glass-card p-5 flex items-start gap-4"
+              style={{ borderLeftWidth: "3px", borderLeftColor: item.color }}
+            >
+              <div className="flex-shrink-0 mt-0.5">
+                <span
+                  className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded"
+                  style={{
+                    background: `${item.color}20`,
+                    color: item.color,
+                    border: `1px solid ${item.color}40`,
+                  }}
+                >
+                  {item.year}
+                </span>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold text-sm mb-1">
+                  {item.catalyst}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {item.detail}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Convergence Statement */}
+        <div
+          className="p-5 rounded-xl text-center"
+          style={{
+            background: "linear-gradient(135deg, rgba(139,92,246,0.08), rgba(16,185,129,0.06))",
+            border: "1px solid rgba(139,92,246,0.15)",
+          }}
+        >
+          <p className="text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            These are not speculative trends. MiCA is enacted. Stablecoin bills are in committee.
+            BlackRock&apos;s BUIDL fund is live. The question is not <em>whether</em> deterministic
+            infrastructure will be required — it is <em>who builds it first</em>.
           </p>
         </div>
       </motion.section>
