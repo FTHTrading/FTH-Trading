@@ -1,0 +1,133 @@
+export interface VaultRole {
+  id: string;
+  name: string;
+  tier: 'hot' | 'warm' | 'cold' | 'governance';
+  color: string;
+  signingThreshold: string;
+  velocityLimit: string;
+  chains: string[];
+  description: string;
+}
+
+export const vaultRoles: VaultRole[] = [
+  {
+    id: 'treasury',
+    name: 'TREASURY',
+    tier: 'warm',
+    color: '#3b82f6',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$50M/day',
+    chains: ['Ethereum', 'XRPL', 'Stellar'],
+    description: 'Primary treasury operations. Stablecoin minting, cross-border settlement.',
+  },
+  {
+    id: 'hot-wallet',
+    name: 'HOT_WALLET',
+    tier: 'hot',
+    color: '#ef4444',
+    signingThreshold: '2-of-3 MPC',
+    velocityLimit: '$5M/day',
+    chains: ['Ethereum', 'Polygon', 'Solana'],
+    description: 'Operational liquidity. Fast execution for market-making and settlement.',
+  },
+  {
+    id: 'cold-storage',
+    name: 'COLD_STORAGE',
+    tier: 'cold',
+    color: '#10b981',
+    signingThreshold: '4-of-7 MPC',
+    velocityLimit: '$10M/week',
+    chains: ['Bitcoin', 'Ethereum'],
+    description: 'Long-term reserve storage. Quarterly rebalancing only.',
+  },
+  {
+    id: 'collateral',
+    name: 'COLLATERAL',
+    tier: 'warm',
+    color: '#f59e0b',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$25M/day',
+    chains: ['Ethereum', 'Polygon'],
+    description: 'Locked collateral for bond issuance and margin requirements.',
+  },
+  {
+    id: 'redemption',
+    name: 'REDEMPTION',
+    tier: 'warm',
+    color: '#8b5cf6',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$50M/day',
+    chains: ['Ethereum', 'XRPL', 'Stellar'],
+    description: 'Stablecoin redemption pool. Matched 1:1 with reserve.',
+  },
+  {
+    id: 'insurance',
+    name: 'INSURANCE',
+    tier: 'cold',
+    color: '#06b6d4',
+    signingThreshold: '5-of-7 MPC',
+    velocityLimit: '$5M/month',
+    chains: ['Bitcoin', 'Ethereum'],
+    description: 'Insurance reserve. Accessed only in loss events.',
+  },
+  {
+    id: 'governance',
+    name: 'GOVERNANCE',
+    tier: 'governance',
+    color: '#a855f7',
+    signingThreshold: 'Governance vote',
+    velocityLimit: 'Policy-bound',
+    chains: ['Cardano', 'Ethereum'],
+    description: 'Protocol treasury. Controlled by governance quorum.',
+  },
+  {
+    id: 'fee-collection',
+    name: 'FEE_COLLECTION',
+    tier: 'warm',
+    color: '#14b8a6',
+    signingThreshold: '2-of-3 MPC',
+    velocityLimit: '$10M/day',
+    chains: ['Ethereum', 'Polygon', 'XRPL'],
+    description: 'Revenue collection from custody, issuance, and execution fees.',
+  },
+  {
+    id: 'staking',
+    name: 'STAKING',
+    tier: 'cold',
+    color: '#6366f1',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$10M/month',
+    chains: ['Ethereum', 'Solana', 'Cosmos'],
+    description: 'Staking and yield-bearing positions. Auto-compound enabled.',
+  },
+  {
+    id: 'bridge-escrow',
+    name: 'BRIDGE_ESCROW',
+    tier: 'warm',
+    color: '#ec4899',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$20M/day',
+    chains: ['Ethereum', 'Polygon', 'Arbitrum', 'Optimism'],
+    description: 'Cross-chain bridge escrow. Time-locked with proof verification.',
+  },
+  {
+    id: 'otc-settlement',
+    name: 'OTC_SETTLEMENT',
+    tier: 'warm',
+    color: '#f97316',
+    signingThreshold: '3-of-5 MPC',
+    velocityLimit: '$100M/day',
+    chains: ['Ethereum', 'Bitcoin', 'XRPL'],
+    description: 'OTC desk settlement. Large-block trades with pre-clearing.',
+  },
+  {
+    id: 'operational',
+    name: 'OPERATIONAL',
+    tier: 'hot',
+    color: '#84cc16',
+    signingThreshold: '2-of-3 MPC',
+    velocityLimit: '$1M/day',
+    chains: ['Ethereum', 'Polygon'],
+    description: 'Gas fees, operational expenses, infrastructure costs.',
+  },
+];
